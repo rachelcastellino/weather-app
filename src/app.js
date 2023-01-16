@@ -69,7 +69,7 @@ function changeTemptoC(event) {
   let tempElement = document.querySelector(".temperature");
   fahrenheitLink.classList.add("active");
   celsiusLink.classList.remove("active");
-  tempElement.innerHTML = Math.round((farenheitTemperature * 9) / 5 + 32);
+  tempElement.innerHTML = Math.round((farenheitTemperature - 32) * (5 / 9));
 }
 
 let farenheitTemperature = null;
