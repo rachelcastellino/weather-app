@@ -27,6 +27,8 @@ function updateWeather(response) {
   let cityName = document.querySelector(".cityname");
   let temperature = document.querySelector(".temperature");
 
+  farenheitTemperature = response.data.main.temp;
+
   cityName.innerHTML = response.data.name;
   temperature.innerHTML = Math.round(response.data.main.temp);
 }
@@ -55,16 +57,22 @@ function getCurrentPosition() {
 // convert temperature to F
 function changeTemptoF(event) {
   event.preventDefault();
-  let tempC = document.querySelector(".temperature");
-  tempC.innerHTML = 40;
+  let tempElement = document.querySelector(".temperature");
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  tempElement.innerHTML = Math.round(farenheitTemperature);
 }
 
 // convert temperature to C
 function changeTemptoC(event) {
   event.preventDefault();
-  let tempF = document.querySelector(".temperature");
-  tempF.innerHTML = 61;
+  let tempElement = document.querySelector(".temperature");
+  fahrenheitLink.classList.add("active");
+  celsiusLink.classList.remove("active");
+  tempElement.innerHTML = Math.round((farenheitTemperature * 9) / 5 + 32);
 }
+
+let farenheitTemperature = null;
 
 // when current location is called
 let button = document.querySelector(".current");
