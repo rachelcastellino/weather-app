@@ -58,7 +58,7 @@ function getCurrentPosition() {
 function changeTemptoF(event) {
   event.preventDefault();
   let tempElement = document.querySelector(".temperature");
-  celsiusLink.classList.add("active");
+  celciusLink.classList.add("active");
   fahrenheitLink.classList.remove("active");
   tempElement.innerHTML = Math.round(farenheitTemperature);
 }
@@ -68,7 +68,7 @@ function changeTemptoC(event) {
   event.preventDefault();
   let tempElement = document.querySelector(".temperature");
   fahrenheitLink.classList.add("active");
-  celsiusLink.classList.remove("active");
+  celciusLink.classList.remove("active");
   tempElement.innerHTML = Math.round((farenheitTemperature - 32) * (5 / 9));
 }
 
@@ -88,8 +88,8 @@ let currentTime = new Date();
 dateElement.innerHTML = formatDate(currentTime);
 
 // feature 3
-let elementF = document.querySelector("#farenheit-link");
-elementF.addEventListener("click", changeTemptoF);
+let fahrenheitLink = document.querySelector("#farenheit-link");
+fahrenheitLink.addEventListener("click", changeTemptoF);
 
-let elementC = document.querySelector("#celcius-link");
-elementC.addEventListener("click", changeTemptoC);
+let celciusLink = document.querySelector("#celcius-link");
+celciusLink.addEventListener("click", changeTemptoC);
